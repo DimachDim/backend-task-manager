@@ -12,11 +12,37 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'request' => [
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ]
+
+        'corsFilter' => [
+            'class' => \yii\filters\Cors::class,
+            'cors' => [
+                'Origin' => ['*'], // You can specify more origins here
+                'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+                'Access-Control-Request-Headers' => ['*'], // You can specify the allowed headers here
+                'Access-Control-Allow-Credentials' => true,
+                'Access-Control-Max-Age' => 86400,
+            ],
         ],
+        
+                'request' => [
+                    'enableCsrfCookie' => false,
+                    'parsers' => [
+                        'application/json' => yii\web\JsonParser::class,
+                    ]
+                ],
+
+        'as corsFilter' => [
+            'class' => \yii\filters\Cors::class,
+            'cors' => [
+                'Origin' => ['http://example.com', 'https://example.com'], // Replace with your actual domain(s)
+                'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+                'Access-Control-Request-Headers' => ['*'],
+                'Access-Control-Allow-Credentials' => true,
+                'Access-Control-Max-Age' => 86400,
+                'Access-Control-Expose-Headers' => [],
+            ],
+        ],
+        
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
