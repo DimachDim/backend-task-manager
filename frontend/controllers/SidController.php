@@ -12,7 +12,7 @@ include '../functions/generateRandomString.php';
 
 class SidController extends ActiveController
 {
-    public $modelClass = 'common\models\Users';
+    public $modelClass = 'common\models\Sid';
 
     //cors
     public function behaviors()
