@@ -5,6 +5,8 @@ namespace frontend\controllers;
 use yii\rest\ActiveController;
 use Yii;
 use yii\helpers\ArrayHelper;
+include '../functions/generateRandomString.php';
+
 // models
 use common\models\Users;
 use common\models\Sid;
@@ -44,13 +46,13 @@ class UsersController extends ActiveController
         return $actions;
     }
 
-    // post: 'domain/users'
+    // post: 'domain/users' Регистрация пользователя
     public function actionCreate()
     {
         try{
 
             // Создаем экземпляры моделей
-            $user = new Users();
+            $user = new Users;
             $sid = new Sid;
             
             // Извлекаем данные из запроса
@@ -77,8 +79,13 @@ class UsersController extends ActiveController
                         $user->password = $password;
                         $user->save();
 
+                        //Указываем что токен занят
+                        $tokenInBD->id_invited_user = $user->id;
+                        $tokenInBD->save();
+
                         //Создаем сессию
-                        $sid->sid = '147';
+                        $randomString = generateRandomString(rand(9,20));
+                        $sid->sid = $randomString;
                         $sid->id_user = Users::findOne(['username'=>$userName])->id;
                         $sid->save();
 
