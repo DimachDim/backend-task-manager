@@ -4,9 +4,11 @@ namespace frontend\controllers;
 
 use yii\rest\ActiveController;
 use Yii;
-use common\models\Users;
 use yii\helpers\ArrayHelper;
-
+// models
+use common\models\Users;
+use common\models\Sid;
+use common\models\InvitationTokens;
 
 
 class UsersController extends ActiveController
@@ -45,14 +47,62 @@ class UsersController extends ActiveController
     // post: 'domain/users'
     public function actionCreate()
     {
-        // Создаем экземпляр модели
-        $model = new Users();
-        // Вытаскиваем данные из запроса и присваеваем модели
-        $model->username = Yii::$app->request->post('userName');
-        // Сохраняем изменения
-        $model->save();
-        // Возвращаем модель пользователю
-        return $model;
+        try{
+
+            // Создаем экземпляры моделей
+            $user = new Users();
+            $sid = new Sid;
+            
+            // Извлекаем данные из запроса
+            $userName = Yii::$app->request->post('userName');
+            $password = Yii::$app->request->post('password');
+            $token = Yii::$app->request->post('token');
+
+            // Ищем данные в базе
+            $tokenInBD = InvitationTokens::findOne(['token'=>$token]);  // Запись по токену
+            $userNameInBD = Users::findOne(['username'=>$userName]);    // Запись по имени пользователя
+
+            // Если такой токен есть
+            if($tokenInBD)
+            {        
+                // Если по такому токену не заходили
+                if($tokenInBD->id_invited_user == null)
+                {
+                    
+                    // Если такое имя пользователя не занято
+                    if($userNameInBD == null)
+                    {
+                        //Создаем пользователя
+                        $user->username = $userName;
+                        $user->password = $password;
+                        $user->save();
+
+                        //Создаем сессию
+                        $sid->sid = '147';
+                        $sid->id_user = Users::findOne(['username'=>$userName])->id;
+                        $sid->save();
+
+                        //Возвражаем данные
+                        return ['sid' => $sid->sid];
+
+                    }else
+                    {
+                        throw new \Exception('Такое имя пользователя уже занято.');
+                    }
+                    
+                // Если по такому токену уже заходили
+                }else{
+                    throw new \Exception('По такому токену уже приглашали другого пользователя'); 
+                }
+
+            // Токена нет
+            }else{
+                throw new \Exception('По такому токену нет приглашений');
+            }
+                    
+        }catch(\Exception $e){
+            return ['errorText' => $e->getMessage()];
+        }
     }
 
     // patch: 'domain/users/id
