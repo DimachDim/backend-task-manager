@@ -71,6 +71,7 @@ return [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],
             ],
         ]
     ],
