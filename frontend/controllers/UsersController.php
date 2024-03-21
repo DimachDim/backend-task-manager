@@ -2,8 +2,8 @@
 
 namespace frontend\controllers;
 
-use yii\rest\ActiveController;
 use Yii;
+use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
 include '../functions/generateRandomString.php';
 
