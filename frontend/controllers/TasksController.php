@@ -36,6 +36,7 @@ class TasksController extends ActiveController
     {
         $actions = parent::actions();
         // Указываем какие экшены будут
+        unset($actions['my-tasks']);
         unset($actions['create']);
         unset($actions['index']);
         return $actions;
