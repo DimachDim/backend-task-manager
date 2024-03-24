@@ -65,8 +65,8 @@ class SidController extends ActiveController
                     $sid->id_user = $user->id;
                     $sid->save();
 
-                    // Отправляем сессию пользователю
-                    return ['sid' => $sid->sid];
+                    // Отправляем данные пользователю
+                    return ['info' => ['sid' => $sid->sid, 'userId'=>$sid->id_user]];
                 
                 // Если пароль не подходит
                 }else{

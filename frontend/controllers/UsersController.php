@@ -90,7 +90,7 @@ class UsersController extends ActiveController
                         $sid->save();
 
                         //Возвражаем данные
-                        return ['sid' => $sid->sid];
+                        return ['info' => ['sid' => $sid->sid, 'userId'=>$sid->id_user]];
 
                     }else
                     {
