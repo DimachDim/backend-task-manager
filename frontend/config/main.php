@@ -72,7 +72,7 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],
-                ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks' => 'my-tasks']],
+                ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks/<id>' => 'my-tasks']],
             ],
         ]
     ],

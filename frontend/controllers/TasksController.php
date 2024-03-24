@@ -73,13 +73,14 @@ class TasksController extends ActiveController
     }
 
     // post: 'domain/tasks/my-tasks' Чтение задач пользователя 
-    public function actionMyTasks()
-{
-    try {
-        // здесь ваш код
-        throw new \Exception('Ok.');
-    } catch (\Exception $e) {
-        return ['errorText' => $e->getMessage()];
+    public function actionMyTasks($id)
+    {
+        try {
+            
+            return $id;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
     }
-}
 }
