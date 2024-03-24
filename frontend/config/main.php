@@ -69,7 +69,7 @@ return [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'users'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-info/<sid>' => 'get-info']],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],
                 ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks/<id>' => 'my-tasks']],

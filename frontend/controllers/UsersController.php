@@ -40,6 +40,7 @@ class UsersController extends ActiveController
     {
         $actions = parent::actions();
         // Указываем какие экшены будут
+        unset($actions['get-info']);
         unset($actions['create']);
         unset($actions['update']);   
         unset($actions['delete']);   
@@ -130,5 +131,16 @@ class UsersController extends ActiveController
     {
         $model = Users::findOne($id);
         $model->delete();
+    }
+
+    // get: 'domain/users/get-info/<sid>'
+    public function actionGetInfo($sid){
+        try {
+            
+            return $sid;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
     }
 }
