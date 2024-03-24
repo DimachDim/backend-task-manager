@@ -37,10 +37,11 @@ class TasksController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['create']);
+        unset($actions['index']);
         return $actions;
     }
 
-    // post: 'domain/tasks' Создание сесси
+    // post: 'domain/tasks' Создание задачи
     public function actionCreate()
     {
         try{
@@ -70,4 +71,15 @@ class TasksController extends ActiveController
             return ['errorText' => $e->getMessage()];
         }
     }
+
+    // post: 'domain/tasks/my-tasks' Чтение задач пользователя 
+    public function actionMyTasks()
+{
+    try {
+        // здесь ваш код
+        throw new \Exception('Ok.');
+    } catch (\Exception $e) {
+        return ['errorText' => $e->getMessage()];
+    }
+}
 }
