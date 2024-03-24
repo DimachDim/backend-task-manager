@@ -73,7 +73,7 @@ class TasksController extends ActiveController
         }
     }
 
-    // post: 'domain/tasks/my-tasks' Чтение задач пользователя 
+    // get: 'domain/tasks/my-tasks/<id>' Чтение задач пользователя 
     public function actionMyTasks($id)
     {
         try {

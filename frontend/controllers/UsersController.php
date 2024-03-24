@@ -137,7 +137,8 @@ class UsersController extends ActiveController
     public function actionGetInfo($sid){
         try {
             
-            return $sid;
+            $userId = Sid::findOne(['sid'=>$sid])->id_user;
+            return ['userInfo'=>['userId'=>$userId]];
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
