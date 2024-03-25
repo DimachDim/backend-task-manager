@@ -37,6 +37,7 @@ class TasksController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['my-tasks']);
+        unset($actions['delete']);
         unset($actions['create']);
         unset($actions['index']);
         return $actions;
@@ -92,6 +93,22 @@ class TasksController extends ActiveController
             }
 
             return $newArrTasks;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    // delete: 'domain/tasks/<id>' Чтение задач пользователя 
+    public function actionDelete($id)
+    {
+        try {
+            
+            // Поиск в базе
+            $task = Tasks::findOne(['id'=> $id]);
+            $task->delete();
+
+            //return 'ok';
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
