@@ -133,7 +133,7 @@ class UsersController extends ActiveController
         $model->delete();
     }
 
-    // get: 'domain/users/get-info/<sid>'
+    // get: 'domain/users/get-info/<sid>' Получение информации о пользователе
     public function actionGetInfo($sid){
         try {
             
@@ -141,7 +141,7 @@ class UsersController extends ActiveController
             $userId = Sid::findOne(['sid'=>$sid])->id_user;
             $userName = Users::findOne(['id'=>$userId])->username;
 
-            return ['userInfo'=>['userId'=>$userId, 'userName'=>$userName]];
+            return ['info'=>['userId'=>$userId, 'userName'=>$userName]];
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
