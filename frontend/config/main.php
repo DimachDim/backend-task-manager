@@ -82,6 +82,8 @@ return [
                 ['class' => 'yii\rest\UrlRule','controller' => 'followers', 'extraPatterns' => ['GET yes-no/<userId>/<frendId>' => 'yes-no']],
                 // Получить пользователей на которых подписан 
                 ['class' => 'yii\rest\UrlRule','controller' => 'followers', 'extraPatterns' => ['GET get-my-subscriptions/<id>' => 'get-my-subscriptions']],
+                // Получить список подписчиков 
+                ['class' => 'yii\rest\UrlRule','controller' => 'followers', 'extraPatterns' => ['GET get-my-followers/<id>' => 'get-my-followers']],
                 
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],

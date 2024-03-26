@@ -41,6 +41,7 @@ class FollowersController extends ActiveController
         // Указываем какие экшены будут
         unset($actions['yes-no']);
         unset($actions['get-my-subscriptions']);   
+        unset($actions['get-my-followers']);
         unset($actions['delete']);   
         return $actions;
     }
@@ -95,6 +96,19 @@ class FollowersController extends ActiveController
             }
 
             return $users;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    //get: 'domain/followers/get-my-followers/<id> Получить пользователей которые подписаны на меня
+   public function actionGetMyFollowers($id)
+   {
+        try 
+        {
+
+            return 'ok';
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
