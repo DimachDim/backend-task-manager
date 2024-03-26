@@ -153,7 +153,24 @@ class UsersController extends ActiveController
     public function actionGetInvited($id){
         try {
             
-            return 'ok';
+            // Будет хранить список пользователе
+            $arrUsers = [];
+
+            // Ищем записи в токенах приглашения. Где есть приглашенный пользователь
+            $tokens = InvitationTokens::find()
+                ->where(['id_inviting_user'=>$id])
+                ->andWhere(['not', ['id_invited_user' => null]])->all();
+            
+            // Перебираем полученный список
+            foreach( $tokens as $token )
+            {
+                // Ищем пользователя в БД
+                $user = Users::findOne(['id'=>$token->id_invited_user]);
+                // добавляем в массив только имя и id
+                $arrUsers[] = ["userId" => $user->id, "userName"=>$user->username];
+            }
+            
+            return $arrUsers;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
