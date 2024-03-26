@@ -39,12 +39,12 @@ class FollowersController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['yes-no']);
-        unset($actions['update']);   
+        unset($actions['get-my-subscriptions']);   
         unset($actions['delete']);   
         return $actions;
     }
 
-   //get: 'domain/followers/yes-no/<userId>/<frendId>
+   //get: 'domain/followers/yes-no/<userId>/<frendId> Получает текузего пользователя и второго. Сверяет подписаны они или нет
    public function actionYesNo($userId, $frendId)
    {
         try 
@@ -68,6 +68,20 @@ class FollowersController extends ActiveController
             $flagHeFoll = !empty($followers2);
 
             return ['idRecord'=>$idRecord, 'youFollow'=>$flagYouFoll, 'heFollow'=>$flagHeFoll];
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    //get: 'domain/followers/get-my-subscriptions/<id> Получить пользователей на которых подписан
+   public function actionGetMySubscriptions($id)
+   {
+        try 
+        {
+
+
+            return 'ok';
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
