@@ -73,6 +73,8 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-info/<sid>' => 'get-info']],
                 // Получение списка приглашенных пользователей
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-invited/<id>' => 'get-invited']],
+                // Получение списка пользователей по имени
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET serch-name/<userName>' => 'get-user-by-name']],
                 // Получение списка моих задач
                 ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks/<id>' => 'my-tasks']],
                 

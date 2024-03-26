@@ -42,6 +42,7 @@ class UsersController extends ActiveController
         // Указываем какие экшены будут
         unset($actions['get-info']);
         unset($actions['get-invited']);
+        unset($actions['get-user-by-name']);
         unset($actions['create']);
         unset($actions['update']);   
         unset($actions['delete']);   
@@ -171,6 +172,17 @@ class UsersController extends ActiveController
             }
             
             return $arrUsers;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    //get: 'domain/users/serch-name/<userName>' Получить приглашенныйх пользователе
+    public function actionGetUserByName($userName){
+        try {
+                        
+            return 'ok';
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
