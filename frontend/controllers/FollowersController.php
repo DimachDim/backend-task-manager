@@ -107,8 +107,21 @@ class FollowersController extends ActiveController
    {
         try 
         {
+            // Запрашиваем всех кто подписан на пользователя
+            $followers = Followers::find()->where(['id_frend'=> $id])->all();
+            // Тут будет конечный массив пользователей
+            $users = [];
 
-            return 'ok';
+            // Перебираем полученный массив
+            foreach ($followers as $follower)
+            {   
+                // Ищем данные пользователей
+                $user = Users::findOne(['id'=>$follower->id_user]);
+                // Записываем данные в массив
+                $users[] = ['userId'=>$user->id,'userName'=> $user->username];
+            }
+
+            return $users;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
