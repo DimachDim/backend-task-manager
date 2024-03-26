@@ -9,6 +9,7 @@ include '../functions/generateRandomString.php';
 
 // models
 use common\models\Followers;
+use common\models\Users;
 
 
 class FollowersController extends ActiveController
@@ -79,9 +80,21 @@ class FollowersController extends ActiveController
    {
         try 
         {
+            // Ищим всех на кого подписан пользователь
+            $followers = Followers::find()->where(['id_user'=> $id])->all();
+            // Будет хранить массив пользователей
+            $users = [];
 
+            // Перебираем полученный массив
+            foreach ($followers as $follower)
+            {
+                // Ищем пользователя
+                $user = Users::findOne(['id'=>$follower->id_frend]);
+                // Добавляем в подготовленный массив
+                $users[] = ['id'=>$user->id,'username'=>$user->username];
+            }
 
-            return 'ok';
+            return $users;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
