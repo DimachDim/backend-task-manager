@@ -91,7 +91,7 @@ class FollowersController extends ActiveController
                 // Ищем пользователя
                 $user = Users::findOne(['id'=>$follower->id_frend]);
                 // Добавляем в подготовленный массив
-                $users[] = ['id'=>$user->id,'username'=>$user->username];
+                $users[] = ['userId'=>$user->id,'userName'=>$user->username];
             }
 
             return $users;
