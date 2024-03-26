@@ -41,6 +41,7 @@ class UsersController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['get-info']);
+        unset($actions['get-invited']);
         unset($actions['create']);
         unset($actions['update']);   
         unset($actions['delete']);   
@@ -142,6 +143,17 @@ class UsersController extends ActiveController
             $userName = Users::findOne(['id'=>$userId])->username;
 
             return ['info'=>['userId'=>$userId, 'userName'=>$userName]];
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    // get: 'domain/users/get-invited/<id>' Получить приглашенныйх пользователе
+    public function actionGetInvited($id){
+        try {
+            
+            return 'ok';
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];

@@ -70,6 +70,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-info/<sid>' => 'get-info']],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-invited/<id>' => 'get-invited']],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'invite-tokens'],
