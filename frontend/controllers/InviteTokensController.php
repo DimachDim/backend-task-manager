@@ -47,15 +47,22 @@ class InviteTokensController extends ActiveController
             
             // id пользователя
             $userId = Yii::$app->request->post('userId');
+            // Смотрим надо ли генирировать новый токен
+            $generateNew = Yii::$app->request->post('generateNew');
+            $tokenRandom = null;    // По умолчанию пуст
 
-            // Создаем токен
-            $tokenRandom = generateRandomString(10, '#');
-            // Создаем запись в бд с таким токеном
-            $inviteToken = new InvitationTokens();
-            $inviteToken->id_inviting_user = $userId;
-            $inviteToken->id_invited_user = null;
-            $inviteToken->token = $tokenRandom;
-            $inviteToken->save();
+            // Если надо генерировать
+            if($generateNew)
+            {
+                // Создаем токен
+                $tokenRandom = generateRandomString(10, '#');
+                // Создаем запись в бд с таким токеном
+                $inviteToken = new InvitationTokens();
+                $inviteToken->id_inviting_user = $userId;
+                $inviteToken->id_invited_user = null;
+                $inviteToken->token = $tokenRandom;
+                $inviteToken->save();
+            }
             
             // Получаем все созданные пользователем токены
             $userTokens = InvitationTokens::findAll(['id_inviting_user'=>$userId]);
@@ -77,6 +84,7 @@ class InviteTokensController extends ActiveController
                 $newUserTokens[] = $newToken;
             }
 
+            
             // Возвращаем новый токен и все токены пользователя
             return ['token' => $tokenRandom, 'tokens' => $newUserTokens];
 
