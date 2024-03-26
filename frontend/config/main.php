@@ -77,6 +77,8 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET serch-name/<userName>' => 'get-user-by-name']],
                 // Получение списка моих задач
                 ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks/<id>' => 'my-tasks']],
+                // Ответ подписан на пользователя или нет
+                ['class' => 'yii\rest\UrlRule','controller' => 'followers', 'extraPatterns' => ['GET yes-no/<userId>/<frendId>' => 'yes-no']],
                 
                 
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
