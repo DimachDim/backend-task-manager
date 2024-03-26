@@ -49,8 +49,25 @@ class FollowersController extends ActiveController
    {
         try 
         {
-            
-            return $frendId;
+            // Ищем все записи где текущий пользователь подписан на запрашеваемого
+            $followers = Followers::find()->where(['id_user'=> $userId, 'id_frend'=>$frendId])->all();
+            // Флаг подписан на него или нет
+            $flagYouFoll = !empty($followers);
+            // Если есть запись
+            if($flagYouFoll)
+            {
+                // Записываем id записи
+                $idRecord = $followers[0]->id;
+            }else{
+                $idRecord = null;
+            }
+
+            // Ищем все записи где запрашиваемый пользователь подписан на текущего
+            $followers2 = Followers::find()->where(['id_user'=> $frendId, 'id_frend'=>$userId])->all();
+            // Флаг подписан ли он на вас
+            $flagHeFoll = !empty($followers2);
+
+            return ['idRecord'=>$idRecord, 'youFollow'=>$flagYouFoll, 'heFollow'=>$flagHeFoll];
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
