@@ -181,8 +181,15 @@ class UsersController extends ActiveController
     //get: 'domain/users/serch-name/<userName>' Получить приглашенныйх пользователе
     public function actionGetUserByName($userName){
         try {
-                        
-            return 'ok';
+            
+            // Ищем в базе записи которые содержат часть переданной строки
+            $users = Users::find()
+                ->select(['id', 'username'])                        // Указываем только нужные поля
+                ->andFilterWhere(['like', 'username', $userName])   // Ищем по части значения
+                ->limit(7)                                          // Максимальное число записей
+                ->all();
+
+            return $users;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
