@@ -116,8 +116,19 @@ class TasksController extends ActiveController
         try {
             // Запрашиваем задачи которые назначены нам
             $arrTasks = Tasks::findAll(['id_user_executor'=>$id]);
-            
-            return $arrTasks;
+            $newArrTasks = [];      // Для копирования массива
+
+            // Перебираем полученный массив
+            foreach ($arrTasks as $task) {
+                // Конвертируем объект в массив
+                $newTask = $task->attributes;
+                // Добавляем новое свойство. Запрашиваем имя пользователя в базе
+                $newTask['userName'] = Users::findOne(['id' => $task->id_user_creator])->username;
+                // Добавляем измененный task в новый массив
+                $newArrTasks[] = $newTask;
+            }
+
+            return $newArrTasks;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
