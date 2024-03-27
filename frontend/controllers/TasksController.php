@@ -161,10 +161,17 @@ class TasksController extends ActiveController
     {
         try {
 
-            $userName = Yii::$app->request->post('userName');
+            // Достаем из запроса новый статус
+            $status = Yii::$app->request->post('status');
+            // Ищем задачу в базе
+            $task = Tasks::findOne(['id'=>$id]);
+            // Меняем статус
+            $task->id_status = $status;
+            // Сохраняем
+            $task->save();
 
-            return [$userName, $id];
-
+            return 'ok';
+            
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
         }
