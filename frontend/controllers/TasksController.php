@@ -7,6 +7,8 @@ use yii\helpers\ArrayHelper;
 use common\models\Tasks;
 use common\models\Users;
 use common\models\Sid;
+use common\models\TaskStatuses;
+
 
 include '../functions/generateRandomString.php';
 
@@ -117,7 +119,8 @@ class TasksController extends ActiveController
             $newData = (array) $task->attributes;
             // Добавляем новое значение
             $newData['userNameCreator'] = Users::findOne(['id'=> $task->id_user_creator])->username;
-            
+            $newData['userNameExecutor'] = Users::findOne(['id'=> $task->id_user_executor])->username;
+            $newData['statusName'] = TaskStatuses::findOne(['id'=> $task->id_status])->statusName;
 
             return $newData;
 
