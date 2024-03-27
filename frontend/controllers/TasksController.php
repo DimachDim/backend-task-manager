@@ -105,7 +105,9 @@ class TasksController extends ActiveController
     {
         try {
             
-            return $id;
+            $task = Tasks::findOne(['id'=>$id]);
+
+            return $task;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
