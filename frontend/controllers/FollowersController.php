@@ -127,4 +127,17 @@ class FollowersController extends ActiveController
             return ['errorText' => $e->getMessage()];
         }
     }
+
+    //delete: 'domain/followers/<id> Получить пользователей которые подписаны на меня
+    public function actionDelete($id)
+    {
+        try 
+        {
+
+            return 'ok';
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
 }
