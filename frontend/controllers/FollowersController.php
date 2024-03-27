@@ -43,6 +43,7 @@ class FollowersController extends ActiveController
         unset($actions['get-my-subscriptions']);   
         unset($actions['get-my-followers']);
         unset($actions['delete']);   
+        unset($actions['create']);  
         return $actions;
     }
 
@@ -128,13 +129,38 @@ class FollowersController extends ActiveController
         }
     }
 
-    //delete: 'domain/followers/<id> Получить пользователей которые подписаны на меня
+    //delete: 'domain/followers/<idRecord> Отписаться от пользователя
     public function actionDelete($id)
     {
         try 
         {
+            // Ищем запись в базе по id
+            $record = Followers::findOne(['id'=>$id]);
+            // Удаляем запись
+            $record->delete();
 
-            return 'ok';
+            return ['idRecord'=>null, 'youFollow'=>false];
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    //post: 'domain/followers/<idRecord> Подписаться на пользователя
+    public function actionCreate()
+    {
+        try 
+        {
+            $userId1 = Yii::$app->request->post('userId1');     // id текущего пользователя
+            $userId2 = Yii::$app->request->post('userId2');     // id на кого подписываемся
+
+            // Создаем запись в БД
+            $record = new Followers();
+            $record->id_user = $userId1;
+            $record->id_frend = $userId2;
+            $record->save();
+
+            return ['idRecord'=>$record->id, 'youFollow'=>true];
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
