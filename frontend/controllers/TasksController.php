@@ -40,6 +40,7 @@ class TasksController extends ActiveController
         unset($actions['delete']);
         unset($actions['create']);
         unset($actions['index']);
+        unset($actions['view']);
         return $actions;
     }
 
@@ -99,7 +100,19 @@ class TasksController extends ActiveController
         }
     }
 
-    // delete: 'domain/tasks/<id>' Чтение задач пользователя 
+    // get: 'domain/tasks/<id>' Чтение одной задачи 
+    public function actionView($id)
+    {
+        try {
+            
+            return $id;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+
+    // delete: 'domain/tasks/<id>' Удаление задачи
     public function actionDelete($id)
     {
         try {
