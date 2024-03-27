@@ -50,22 +50,29 @@ class TasksController extends ActiveController
         try{
             
             // Достаем данные из запроса
-            $title = Yii::$app->request->post('title');
-            $text = Yii::$app->request->post('text');
-            $sid = Yii::$app->request->post('sid');
+            $title = Yii::$app->request->post('title');                 // заголовок
+            $text = Yii::$app->request->post('text');                   // текст
+            $id_user_executor = Yii::$app->request->post('executorId'); // Исполнитель
+            $date_start = Yii::$app->request->post('startDate');        // дата начала
+            $date_end = Yii::$app->request->post('endDate');            // дата конца
+            $sid = Yii::$app->request->post('sid');                     // сессия
 
             // Запросы к БД
-            $id_user = Sid::findOne(['sid'=> $sid])->id_user;
+            $id_user = Sid::findOne(['sid'=> $sid])->id_user;           // id создателя задачи
 
             // Генерируем токен
             $randomString = generateRandomString(7, '#');
 
             // Создаем задачу
             $task = new Tasks();
-            $task->token = $randomString;
-            $task->title = $title;
-            $task->text = $text;
-            $task->id_user_creator = $id_user;
+            $task->token = $randomString;                   // токен
+            $task->title = $title;                          // заголовок
+            $task->text = $text;                            // текст
+            $task->id_user_creator = $id_user;              // создатель задачи
+            $task->id_user_executor = $id_user_executor;    // исполнитель задачи
+            $task->date_start = $date_start;                // дата начала
+            $task->date_end = $date_end;                    // дата конца
+            $task->id_status = 3;                           // статус "Не начато"
             $task->save();
 
             return true;
