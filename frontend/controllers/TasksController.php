@@ -89,7 +89,7 @@ class TasksController extends ActiveController
     public function actionMyTasks($id)
     {
         try {
-            
+            // Запрашиваем задачи которые создал пользователь
             $arrTasks = Tasks::findAll(['id_user_creator'=>$id]);
             $newArrTasks = [];      // Для копирования массива
 
@@ -110,17 +110,19 @@ class TasksController extends ActiveController
         }
     }
 
-        // get: 'domain/tasks/pending-tasks/<id>' Чтение задач назначеных пользователю
-        public function actionPendingTasks($id)
-        {
-            try {
-                    
-                return $id;
-    
-            } catch (\Exception $e) {
-                return ['errorText' => $e->getMessage()];
-            }
+    // get: 'domain/tasks/pending-tasks/<id>' Чтение задач назначеных пользователю
+    public function actionPendingTasks($id)
+    {
+        try {
+            // Запрашиваем задачи которые назначены нам
+            $arrTasks = Tasks::findAll(['id_user_executor'=>$id]);
+            
+            return $arrTasks;
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
         }
+    }
 
     // get: 'domain/tasks/<id>' Чтение одной задачи 
     public function actionView($id)
