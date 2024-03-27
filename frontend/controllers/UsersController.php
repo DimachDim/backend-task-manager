@@ -178,7 +178,7 @@ class UsersController extends ActiveController
         }
     }
 
-    //get: 'domain/users/serch-name/<userName>' Получить приглашенныйх пользователе
+    //get: 'domain/users/serch-name/<userName>' Получить пользователя по части имени (для поиска)
     public function actionGetUserByName($userName){
         try {
             

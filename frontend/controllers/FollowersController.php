@@ -146,7 +146,7 @@ class FollowersController extends ActiveController
         }
     }
 
-    //post: 'domain/followers/<idRecord> Подписаться на пользователя
+    //post: 'domain/followers  Подписаться на пользователя
     public function actionCreate()
     {
         try 
