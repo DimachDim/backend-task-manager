@@ -44,6 +44,7 @@ class TasksController extends ActiveController
         unset($actions['create']);
         unset($actions['index']);
         unset($actions['view']);
+        unset($actions['update']);
         return $actions;
     }
 
@@ -154,6 +155,21 @@ class TasksController extends ActiveController
             return ['errorText' => $e->getMessage()];
         }
     }
+
+    // put: 'domain/tasks' Изменение записи
+    public function actionUpdate($id)
+    {
+        try {
+
+            $userName = Yii::$app->request->post('userName');
+
+            return [$userName, $id];
+
+        } catch (\Exception $e) {
+            return ['errorText' => $e->getMessage()];
+        }
+    }
+    
 
     // delete: 'domain/tasks/<id>' Удаление задачи
     public function actionDelete($id)
