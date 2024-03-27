@@ -104,10 +104,15 @@ class TasksController extends ActiveController
     public function actionView($id)
     {
         try {
+            // Ищем задачу в базе по id
+            $task = Tasks::findOne(['id'=>$id]);   
+            // Копируем запись для добавления новых данных
+            $newData = (array) $task->attributes;
+            // Добавляем новое значение
+            $newData['userNameCreator'] = Users::findOne(['id'=> $task->id_user_creator])->username;
             
-            $task = Tasks::findOne(['id'=>$id]);
 
-            return $task;
+            return $newData;
 
         } catch (\Exception $e) {
             return ['errorText' => $e->getMessage()];
