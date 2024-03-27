@@ -75,8 +75,11 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET get-invited/<id>' => 'get-invited']],
                 // Получение списка пользователей по имени
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'users', 'extraPatterns' => ['GET serch-name/<userName>' => 'get-user-by-name']],
-                // Получение списка моих задач
+                
+                // Получение списка задач созданых пользователем
                 ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET my-tasks/<id>' => 'my-tasks']],
+                // Получение списка задач назначенных мне
+                ['class' => 'yii\rest\UrlRule','controller' => 'tasks', 'extraPatterns' => ['GET pending-tasks/<id>' => 'pending-tasks']],
                 
                 // Ответ подписан на пользователя или нет
                 ['class' => 'yii\rest\UrlRule','controller' => 'followers', 'extraPatterns' => ['GET yes-no/<userId>/<frendId>' => 'yes-no']],

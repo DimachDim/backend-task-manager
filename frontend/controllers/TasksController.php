@@ -39,6 +39,7 @@ class TasksController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['my-tasks']);
+        unset($actions['pending-tasks']);
         unset($actions['delete']);
         unset($actions['create']);
         unset($actions['index']);
@@ -84,7 +85,7 @@ class TasksController extends ActiveController
         }
     }
 
-    // get: 'domain/tasks/my-tasks/<id>' Чтение задач пользователя 
+    // get: 'domain/tasks/my-tasks/<id>' Чтение задач созданных пользователем
     public function actionMyTasks($id)
     {
         try {
@@ -108,6 +109,18 @@ class TasksController extends ActiveController
             return ['errorText' => $e->getMessage()];
         }
     }
+
+        // get: 'domain/tasks/pending-tasks/<id>' Чтение задач назначеных пользователю
+        public function actionPendingTasks($id)
+        {
+            try {
+                    
+                return $id;
+    
+            } catch (\Exception $e) {
+                return ['errorText' => $e->getMessage()];
+            }
+        }
 
     // get: 'domain/tasks/<id>' Чтение одной задачи 
     public function actionView($id)
