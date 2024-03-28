@@ -1,6 +1,7 @@
 # backend-task-manager
 
-  [![Альтернативный текст](./docs/TaskManager-ezgif.com-video-to-gif-converter.gif)](https://youtu.be/U5bV3HRUv2E)
+## Видео
+[![Видео](./docs/TaskManager-ezgif.com-video-to-gif-converter.gif)](https://youtu.be/U5bV3HRUv2E)
 
 
 # Ссылки для api
@@ -42,8 +43,9 @@ delete: 'domain/tasks/(id)' Удаление задачи
 get: 'domain/tasks/pending-tasks/(id)' Чтение задач назначеных пользователю
 
 
+# Архитектура базы данных
 
-
+![Архитектура базы данных](./docs/bd.jpg)
 
 
 
