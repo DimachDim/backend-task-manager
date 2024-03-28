@@ -81,7 +81,7 @@ class FollowersController extends ActiveController
    public function actionGetMySubscriptions($id)
    {
         try 
-        {
+        {   
             // Ищим всех на кого подписан пользователь
             $followers = Followers::find()->where(['id_user'=> $id])->all();
             // Будет хранить массив пользователей
