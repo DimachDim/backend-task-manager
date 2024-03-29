@@ -37,6 +37,7 @@ class SidController extends ActiveController
         $actions = parent::actions();
         // Указываем какие экшены будут
         unset($actions['create']);
+        unset($actions['index']);
         return $actions;
     }
 
@@ -83,4 +84,14 @@ class SidController extends ActiveController
         }
     }
 
+    // get: 'domain/sids' для проверки сработки контроллеров
+    public function actionIndex(){
+        try{
+            
+            return 'ok';
+
+        }catch(\Exception $e){
+            return ['errorText' => $e->getMessage()];
+        }
+    }
 }
