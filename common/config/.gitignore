@@ -2,4 +2,6 @@ codeception-local.php
 main-local.php
 params-local.php
 test-local.php
+main-local-1.php
 main-local-2.php
+main-local-server.php
