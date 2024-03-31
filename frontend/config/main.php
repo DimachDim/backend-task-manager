@@ -13,6 +13,12 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
 
+        // Telegremm
+        'telegram' => [
+            'class' => 'aki\telegram\Telegram',
+            'botToken' => '7095702282:AAG1_NKYUXdkLD5QG-GvBOZxDce0vG0qpQU', // номер токена, который дал вам BotFather
+        ],
+
         'corsFilter' => [
             'class' => \yii\filters\Cors::class,
             'cors' => [
@@ -91,6 +97,7 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'sid'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tasks'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'invite-tokens'],
+
             ],
         ]
     ],
