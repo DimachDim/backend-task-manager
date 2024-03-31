@@ -161,7 +161,7 @@ class TelegrammController extends Controller
                 
                 // Смотрим колбеки
                 switch ($callback) {
-                    // Мои задачи
+                    //=========== МОИ ЗАДАЧИ =================
                     case '/mytasks':
 
                         // Достаем id пользователя из базы
@@ -196,7 +196,7 @@ class TelegrammController extends Controller
 
                         break;
 
-                    // Задачи назначенные мне
+                    // =========== ЗАДАЧИ НАЗНАЧЕННЫЕ МНЕ =================
                     case '/assignedtasks':
                         // Достаем id пользователя из базы
                         $userId = Sid::findOne(['sid'=> $chatId])->id_user;
@@ -232,10 +232,35 @@ class TelegrammController extends Controller
 
                     // В остальных случаях
                     default:
-                        // Нзаначаем кнопки. Листы задач
-                        $buttons = $buttonsTaskLists;
-                        // Устанавливаем текст
-                        $textMessage = 'Какие задачи показать?';
+                        // Если отправлен токен
+                        $task = Tasks::findOne(["token"=>$textMessageFromUser]);
+                        if($task != null )
+                        {
+                            $textMessage .= 
+                            // Заголовок
+                            "<b>" . $task->title . "</b>" . "\n \n" .
+                            // Текст
+                            str_replace(
+                                '·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',    // Убираем из теста такие теги
+                                 "\n - ",                                   // заменяя на такие
+                                 strip_tags($task->text, $allowedTags)      // Убираем теги которых нет в телеграм
+                            ). "\n \n" .
+                            // Токен
+                            'Токен: ' . $task->token . "\n".
+                            // Остальные данные
+                            'Создатель: '. Users::findOne(["id"=> $task->id_user_creator])->username . "\n".
+                            'Дата начала: '. $task->date_start . "\n".
+                            'Дата окончания: '. $task->date_end . "\n".
+                            'Статус: ' . TaskStatuses::findOne(['id'=> $task->id_status])->statusName ."\n".
+                            "\n \n";     // Отступы
+                        }
+                        // Если отправлен не токен
+                        else{   
+                            // Нзаначаем кнопки. Листы задач
+                            $buttons = $buttonsTaskLists;
+                            // Устанавливаем текст
+                            $textMessage = 'Какие задачи показать?';
+                        }
                 }
             }
             
