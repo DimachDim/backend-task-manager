@@ -145,6 +145,8 @@ class TelegrammController extends Controller
                             $cache->delete($chatId);
                             // назначаем кнопки
                             $buttons = $buttonsTaskLists;
+                            // Устанавливаем текст
+                            $textMessage = 'Какие задачи показать?';
                         }
                         // Если пароль не совпадает
                         else{
