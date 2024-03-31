@@ -253,6 +253,9 @@ class TelegrammController extends Controller
                             'Дата окончания: '. $task->date_end . "\n".
                             'Статус: ' . TaskStatuses::findOne(['id'=> $task->id_status])->statusName ."\n".
                             "\n \n";     // Отступы
+
+                            // Нзаначаем кнопки. Листы задач
+                            $buttons = $buttonsTaskLists;
                         }
                         // Если отправлен не токен
                         else{   
