@@ -1,28 +1,162 @@
-2024-03-31 12:39:39 Array
+2024-03-31 21:09:07 Array
 (
-    [update_id] => 917747204
-    [message] => Array
+    [0] => common\models\Tasks Object
         (
-            [message_id] => 84
-            [from] => Array
+            [_events:yii\base\Component:private] => Array
                 (
-                    [id] => 1875864140
-                    [is_bot] => 
-                    [first_name] => Дмитрий
-                    [username] => Dmisj
-                    [language_code] => ru
                 )
 
-            [chat] => Array
+            [_eventWildcards:yii\base\Component:private] => Array
                 (
-                    [id] => 1875864140
-                    [first_name] => Дмитрий
-                    [username] => Dmisj
-                    [type] => private
                 )
 
-            [date] => 1711870779
-            [text] => d
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 44
+                    [token] => #xfh1V8
+                    [title] => Разработка мобильного приложения
+                    [text] => <h3><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Создать план выполнения задач, прототипировать, написать код, тестировать и развернуть приложение.</span></h3><ul><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Создать план выполнения задач.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прототипирование интерфейса.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Написание кода.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тестирование приложения.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Развертывание приложения.</span></li></ul><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 97
+                    [date_start] => 2024-03-28
+                    [date_end] => 2024-03-31
+                    [id_status] => 2
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 44
+                    [token] => #xfh1V8
+                    [title] => Разработка мобильного приложения
+                    [text] => <h3><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Создать план выполнения задач, прототипировать, написать код, тестировать и развернуть приложение.</span></h3><ul><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Создать план выполнения задач.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прототипирование интерфейса.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Написание кода.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тестирование приложения.</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Развертывание приложения.</span></li></ul><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 97
+                    [date_start] => 2024-03-28
+                    [date_end] => 2024-03-31
+                    [id_status] => 2
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_relationsDependencies:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+        )
+
+    [1] => common\models\Tasks Object
+        (
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_eventWildcards:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 45
+                    [token] => #wpEdB6
+                    [title] => Подготовка ежеквартального отчета о продажах
+                    [text] => <p><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Нам нужно подготовить отчет о продажах за последний квартал для руководства компании. Наша цель - четко и точно представить данные, показать области роста и области, в которых требуется улучшение.</span></p><ul><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Сбор данных о продажах за последний квартал</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Анализ данных и выявление трендов</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Создание графиков и таблиц для иллюстрации данных</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Написание обзора основные выводы и рекомендации</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Проверка и корректировка отчета</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Представление отчета руководству.</span></li></ul><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 97
+                    [date_start] => 2024-03-29
+                    [date_end] => 2024-04-07
+                    [id_status] => 2
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 45
+                    [token] => #wpEdB6
+                    [title] => Подготовка ежеквартального отчета о продажах
+                    [text] => <p><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Нам нужно подготовить отчет о продажах за последний квартал для руководства компании. Наша цель - четко и точно представить данные, показать области роста и области, в которых требуется улучшение.</span></p><ul><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Сбор данных о продажах за последний квартал</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Анализ данных и выявление трендов</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Создание графиков и таблиц для иллюстрации данных</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Написание обзора основные выводы и рекомендации</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Проверка и корректировка отчета</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Представление отчета руководству.</span></li></ul><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 97
+                    [date_start] => 2024-03-29
+                    [date_end] => 2024-04-07
+                    [id_status] => 2
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_relationsDependencies:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+        )
+
+    [2] => common\models\Tasks Object
+        (
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_eventWildcards:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 46
+                    [token] => #BHJfTA
+                    [title] => Организация годового корпоративного мероприятия
+                    [text] => <p><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Мы планируем наше ежегодное корпоративное мероприятие, которое позволит сотрудникам отдохнуть и пообщаться в неформальной обстановке. Наша цель - создать мероприятие, которое будет веселым и запоминающимся для всех.</span></p><ol><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Определение бюджета и места проведения мероприятия</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Организация кейтеринга</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Планирование развлекательной программы</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Отправка приглашений сотрудникам</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Координация транспорта для сотрудников, если нужно</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Управление регистрацией и подтверждением участия</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Организация мероприятия в день проведения</span></li></ol><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 98
+                    [date_start] => 2024-03-30
+                    [date_end] => 2024-03-31
+                    [id_status] => 3
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 46
+                    [token] => #BHJfTA
+                    [title] => Организация годового корпоративного мероприятия
+                    [text] => <p><span style="background-color: rgb(247, 247, 250); color: rgb(46, 50, 56);">Мы планируем наше ежегодное корпоративное мероприятие, которое позволит сотрудникам отдохнуть и пообщаться в неформальной обстановке. Наша цель - создать мероприятие, которое будет веселым и запоминающимся для всех.</span></p><ol><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Определение бюджета и места проведения мероприятия</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Организация кейтеринга</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Планирование развлекательной программы</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Отправка приглашений сотрудникам</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Координация транспорта для сотрудников, если нужно</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Управление регистрацией и подтверждением участия</span></li><li><span style="color: rgb(46, 50, 56);">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Организация мероприятия в день проведения</span></li></ol><p><br></p>
+                    [id_user_creator] => 94
+                    [id_user_executor] => 98
+                    [date_start] => 2024-03-30
+                    [date_end] => 2024-03-31
+                    [id_status] => 3
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_relationsDependencies:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
         )
 
 )
