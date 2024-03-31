@@ -1,8 +1,12 @@
 # backend-task-manager
 
-## Видео
+## Видео frontend на ReactJS
 [![Видео](./docs/TaskManager-ezgif.com-video-to-gif-converter.gif)](https://youtu.be/U5bV3HRUv2E)
 
+## Видео Telegram Bot
+[![Видео TG](./docs/TG.gif)](https://youtu.be/VaxRPQc99Yg)
+
+Ссылка на телеграм бот: https://t.me/TManagerBot_bot
 
 # Ссылки для api
 
